@@ -9,9 +9,9 @@ resource "aws_dms_replication_task" "cdc" {
     table_mappings = jsonencode({
       rules = [
         {
-          rule_type = "selection"
-          rule_id   = "1"
-          rule_name = "1"
+          rule-type = "selection"
+          rule-id   = "1"
+          rule-name = "1"
           
           object-locator = {
             schema-name = "public"

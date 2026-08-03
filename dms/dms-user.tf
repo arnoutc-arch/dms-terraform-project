@@ -67,7 +67,7 @@ resource "aws_secretsmanager_secret_version" "aurora_password" {
 
     secret_string = jsonencode(
         {
-            username = "posgres",
+            username = "postgres",
             password = var.source_password
         }
     )

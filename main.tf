@@ -45,8 +45,8 @@ module "dms" {
     postgresql = postgresql.source
   }
 
-  vpc_id = module.vpc.target_vpc_id
-  private_subnet_ids = module.vpc.target_private_subnet_ids
+  vpc_id = module.vpc.source_vpc_id
+  private_subnet_ids = module.vpc.source_private_subnet_ids
 
   aurora_security_group_id = module.source_account.security_group_id
 
