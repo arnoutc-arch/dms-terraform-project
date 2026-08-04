@@ -2,6 +2,14 @@ resource "aws_security_group" "bootstrap" {
     name                            = "postgres-bootstrap"
     vpc_id                          = var.vpc_id
 
+    ingress {
+        description                 = "SSH from home"
+        from_port                   = 22
+        to_port                     = 22
+        protocol                    = "tcp"
+        cidr_blocks                 = ["217.38.8.142/32"]
+    }
+    
     egress {
         from_port                   = 0
         to_port                     = 0

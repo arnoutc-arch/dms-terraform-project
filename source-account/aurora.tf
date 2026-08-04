@@ -22,6 +22,8 @@ resource "aws_rds_cluster_instance" "source_writer" {
 
   instance_class            = var.source_instance_class
   engine                    = aws_rds_cluster.source.engine
+
+  publicly_accessible       = false
 }
 
 resource "aws_rds_cluster_parameter_group" "source_pg" {

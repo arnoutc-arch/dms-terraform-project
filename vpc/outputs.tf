@@ -20,3 +20,8 @@ output "target_vpc_id" {
   value = aws_vpc.target.id
 }
 
+output "source_public_subnet_a_id" {
+  value = aws_subnet.source_public_a.id
+}
+
+

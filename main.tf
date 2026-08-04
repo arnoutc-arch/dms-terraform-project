@@ -47,7 +47,8 @@ module "dms" {
 
   vpc_id = module.vpc.source_vpc_id
   private_subnet_ids = module.vpc.source_private_subnet_ids
-
+  public_subnet_id = module.vpc.source_public_subnet_a_id
+  
   aurora_security_group_id = module.source_account.security_group_id
 
   source_cluster_endpoint = module.source_account.cluster_endpoint

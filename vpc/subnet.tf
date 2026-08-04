@@ -45,3 +45,16 @@ resource "aws_subnet" "target_private_b" {
     Name = "target-private-b"
   }
 }
+
+resource "aws_subnet" "source_public_a" {
+  provider = aws.source
+
+  vpc_id                  = aws_vpc.source.id
+  cidr_block              = "10.0.100.0/24"
+  availability_zone       = "eu-west-2a"
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name = "source-public-a"
+  }
+}

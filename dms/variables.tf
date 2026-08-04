@@ -1,5 +1,5 @@
 variable "dms_username" {
-    default = "postgres"
+    default = "dms_user"
 }
 
 variable "source_cluster_id" {
@@ -102,6 +102,10 @@ variable "aurora_sg_id" {
 
 variable "private_subnet_ids" {
   type = list(string)
+}
+
+variable "public_subnet_id" {
+    type = string
 }
 
 variable "aurora_security_group_id" {
