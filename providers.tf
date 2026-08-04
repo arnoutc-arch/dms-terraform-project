@@ -35,6 +35,7 @@ provider "postgresql" {
   password        = var.source_password
   sslmode         = var.source_sslmode
   connect_timeout = 15
+  superuser       = false
 }
 
 provider "postgresql" {
@@ -46,4 +47,5 @@ provider "postgresql" {
   password        = var.target_password
   sslmode         = var.target_sslmode
   connect_timeout = 15
+  superuser       = false
 }
