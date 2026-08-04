@@ -49,14 +49,3 @@ resource "aws_db_subnet_group" "source" {
   subnet_ids = var.private_subnet_ids
 }
 
-resource "aws_security_group" "source_db" {
-  name   = "source-db-sg"
-  vpc_id = var.vpc_id
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
