@@ -9,4 +9,8 @@ resource "aws_dms_replication_instance" "main" {
     allocated_storage                   = var.dms_allocated_storage
     publicly_accessible                 = false
     multi_az                            = false
+
+    vpc_security_group_ids = [
+        aws_security_group.dms.id
+    ]
 }

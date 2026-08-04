@@ -11,7 +11,7 @@ dnf install -y \
     unzip \
     git \
     jq \
-    curl
+    curl --allowerasing
 
 dnf install -y yum-utils
 yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
@@ -25,7 +25,7 @@ curl -L -o dvdrental.zip https://neon.tech/postgresqltutorial/dvdrental.zip
 
 unzip -o dvdrental.zip
 
-export PGPASSWORD="${source_password}"
+export PGPASSWORD='${source_password}'
 
 pg_restore \
   --host=${source_endpoint} \

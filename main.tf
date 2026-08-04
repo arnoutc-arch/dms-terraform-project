@@ -50,6 +50,8 @@ module "dms" {
   public_subnet_id = module.vpc.source_public_subnet_a_id
   
   aurora_security_group_id = module.source_account.security_group_id
+  source_aurora_sg_id = module.source_account.security_group_id
+  target_aurora_sg_id = module.target_account.security_group_id
 
   source_cluster_endpoint = module.source_account.cluster_endpoint
   target_cluster_endpoint = module.target_account.cluster_endpoint

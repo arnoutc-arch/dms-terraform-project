@@ -111,3 +111,11 @@ variable "public_subnet_id" {
 variable "aurora_security_group_id" {
     type = string
 }
+
+variable "source_aurora_sg_id" {
+  type = string
+}
+
+variable "target_aurora_sg_id" {
+  type = string
+}
