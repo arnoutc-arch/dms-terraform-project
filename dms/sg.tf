@@ -7,7 +7,7 @@ resource "aws_security_group" "bootstrap" {
         from_port                   = 22
         to_port                     = 22
         protocol                    = "tcp"
-        cidr_blocks                 = ["194.75.196.200/32"]
+        cidr_blocks                 = ["${var.myownlaptopIP}/32"]
     }
     
     egress {
