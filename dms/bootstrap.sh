@@ -10,6 +10,7 @@ dnf install -y \
     postgresql18.aarch64 \
     unzip \
     git \
+    nc \
     jq \
     curl --allowerasing
 

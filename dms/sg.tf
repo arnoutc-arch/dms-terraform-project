@@ -7,7 +7,7 @@ resource "aws_security_group" "bootstrap" {
         from_port                   = 22
         to_port                     = 22
         protocol                    = "tcp"
-        cidr_blocks                 = ["217.38.8.142/32"]
+        cidr_blocks                 = ["194.75.196.200/32"]
     }
     
     egress {
@@ -52,12 +52,12 @@ resource "aws_security_group_rule" "source_from_dms" {
   source_security_group_id = aws_security_group.dms.id
 }
 
-resource "aws_security_group_rule" "target_from_dms" {
-  type                     = "ingress"
-  protocol                 = "tcp"
-  from_port                = 5432
-  to_port                  = 5432
+# resource "aws_security_group_rule" "target_from_dms" {
+#   type                     = "ingress"
+#   protocol                 = "tcp"
+#   from_port                = 5432
+#   to_port                  = 5432
 
-  security_group_id        = var.target_aurora_sg_id
-  source_security_group_id = aws_security_group.dms.id
-}
+#   security_group_id        = var.target_aurora_sg_id
+#   source_security_group_id = aws_security_group.dms.id
+# }

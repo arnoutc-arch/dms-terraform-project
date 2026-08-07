@@ -7,6 +7,8 @@ resource "aws_dms_endpoint" "source" {
     database_name           = var.source_database
     username                = var.source_username
     password                = var.source_password
+
+    ssl_mode                = "require"
 }
 
 resource "aws_dms_endpoint" "target" {
@@ -18,4 +20,6 @@ resource "aws_dms_endpoint" "target" {
     database_name           = var.target_database
     username                = var.target_username
     password                = var.target_password
+    
+    ssl_mode                = "require"
 }

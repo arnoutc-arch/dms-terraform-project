@@ -7,3 +7,13 @@ resource "aws_internet_gateway" "source" {
     Name = "source-igw"
   }
 }
+
+resource "aws_internet_gateway" "target" {
+  provider = aws.target
+
+  vpc_id = aws_vpc.target.id
+
+  tags = {
+    Name = "target-igw"
+  }
+}

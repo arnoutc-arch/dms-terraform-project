@@ -46,6 +46,7 @@ module "dms" {
   }
 
   vpc_id = module.vpc.source_vpc_id
+  
   private_subnet_ids = module.vpc.source_private_subnet_ids
   public_subnet_id = module.vpc.source_public_subnet_a_id
   
