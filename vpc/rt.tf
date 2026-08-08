@@ -36,6 +36,14 @@ resource "aws_route_table" "target_public" {
   }
 }
 
+resource "aws_route" "source_public_to_target" {
+  provider = aws.source
+
+  route_table_id            = aws_route_table.source_public.id
+  destination_cidr_block    = "10.1.0.0/16"
+  vpc_peering_connection_id = aws_vpc_peering_connection.cross_account.id
+}
+
 resource "aws_route_table" "source_private" {
   provider = aws.source
   vpc_id = aws_vpc.source.id

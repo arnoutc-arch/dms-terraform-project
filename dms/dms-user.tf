@@ -77,17 +77,3 @@ resource "aws_secretsmanager_secret_version" "aurora_password" {
 data "aws_secretsmanager_secret_version" "postgres" {
     secret_id = "aurora-master-password"
 }
-
-# locals {
-#     source_postgres_password = jsondecode(
-#         data.aws_secretsmanager_secret_version.postgres.secret_string
-#     )["password"]
-
-#     target_postgres_password = jsondecode(
-#         data.aws_secretsmanager_secret_version.postgres.secret_string
-#     )["password"]
-
-#     dms_postgres_password = jsondecode(
-#         data.aws_secretsmanager_secret_version.postgres.secret_string
-#     )["password"]
-# }

@@ -124,5 +124,5 @@ variable "target_aurora_sg_id" {
 
 variable "myownlaptopIP" {
     type    = string
-    default = "217.38.8.142"
+    default = "194.75.196.200"
 }
