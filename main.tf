@@ -42,6 +42,7 @@ module "dms" {
 
   providers = {
     aws        = aws.source
+    aws.target = aws.target
     postgresql = postgresql.source
   }
 

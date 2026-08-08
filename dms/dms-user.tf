@@ -1,60 +1,60 @@
-# resource "postgresql_role" "dms_user" {
-#     name        = var.dms_username
-#     login       = true
-#     password    = var.dms_password
-# }
+resource "postgresql_role" "dms_user" {
+    name        = var.dms_username
+    login       = true
+    password    = var.dms_password
+}
 
-# # Grant connect to database to DMS user
+# Grant connect to database to DMS user
 
-# resource "postgresql_grant" "database_connect" {
-#     database    = var.source_database
-#     role        = postgresql_role.dms_user.name
-#     object_type = "database"
+resource "postgresql_grant" "database_connect" {
+    database    = var.source_database
+    role        = postgresql_role.dms_user.name
+    object_type = "database"
 
-#     privileges = [
-#         "CONNECT"
-#     ]
-# }
+    privileges = [
+        "CONNECT"
+    ]
+}
 
-# Grant usage on schema to DMS user
+#Grant usage on schema to DMS user
 
-# resource "postgresql_grant" "schema_usage" {
-#     database    = var.source_database
-#     role        = postgresql_role.dms_user.name
-#     object_type = "schema"
-#     schema      = var.source_schema
+resource "postgresql_grant" "schema_usage" {
+    database    = var.source_database
+    role        = postgresql_role.dms_user.name
+    object_type = "schema"
+    schema      = var.source_schema
 
-#     privileges = [
-#         "USAGE"
-#     ]
-# }
+    privileges = [
+        "USAGE"
+    ]
+}
 
-# # Grant read access on all tables in the schema
+# Grant read access on all tables in the schema
 
-# resource "postgresql_grant" "table_select" {
-#     database    = var.source_database
-#     role        = postgresql_role.dms_user.name
-#     object_type = "table"
-#     schema      = var.source_schema
+resource "postgresql_grant" "table_select" {
+    database    = var.source_database
+    role        = postgresql_role.dms_user.name
+    object_type = "table"
+    schema      = var.source_schema
 
-#     privileges = [
-#         "SELECT"
-#     ]
-# }
+    privileges = [
+        "SELECT"
+    ]
+}
 
-# # Grant read access to sequences
+# Grant read access to sequences
 
-# resource "postgresql_grant" "sequence_access" {
-#     database    = var.source_database
-#     role        = postgresql_role.dms_user.name
-#     object_type = "sequence"
-#     schema      = var.source_schema
+resource "postgresql_grant" "sequence_access" {
+    database    = var.source_database
+    role        = postgresql_role.dms_user.name
+    object_type = "sequence"
+    schema      = var.source_schema
 
-#     privileges = [
-#         "USAGE",
-#         "SELECT"
-#     ]
-# }
+    privileges = [
+        "USAGE",
+        "SELECT"
+    ]
+}
 
 # Create a secret in AWS Secrets Manager
 resource "aws_secretsmanager_secret" "aurora_password" {

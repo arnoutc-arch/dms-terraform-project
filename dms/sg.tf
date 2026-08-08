@@ -30,6 +30,18 @@ resource "aws_security_group_rule" "aurora_from_bootstrap" {
 
 }
 
+resource "aws_security_group_rule" "target_from_bootstrap" {
+  provider = aws.target
+
+  type                     = "ingress"
+  from_port                = 5432
+  to_port                  = 5432
+  protocol                 = "tcp"
+
+  security_group_id        = var.target_aurora_sg_id
+  source_security_group_id = aws_security_group.bootstrap.id
+}
+
 resource "aws_security_group" "dms" {
   name   = "dms-sg"
   vpc_id = var.vpc_id

@@ -123,5 +123,6 @@ variable "target_aurora_sg_id" {
 # run: curl ifconfig.me
 
 variable "myownlaptopIP" {
+    type    = string
     default = "217.38.8.142"
 }
